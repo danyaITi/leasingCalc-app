@@ -18,7 +18,7 @@
 .calc{
     width: 95vw;
     background: #FFFFFF;
-    padding: 100px 40px;
+    padding: 100px 50px;
     height: 100%;
     display: flex;
     justify-content: center;
@@ -79,10 +79,8 @@
 
 .form{
     display: flex;
-    @media screen and (min-width:1440px) {
-        justify-content: center;
-        align-items: center;
-    }
+    justify-content: space-around;
+    align-items: center;
 }
 
 .result{
