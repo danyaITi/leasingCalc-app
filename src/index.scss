@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@100;300;600;900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.App{
+    background: #E5E5E5;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calc{
+    width: 1120px;
+    background: #FFFFFF;
+    padding: 213px 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @media screen and (max-width:767px) {
+        .content{
+            width: 320px;
+            padding: 0px 20px;
+        }
+        .form{
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(3, 1fr);
+            grid-row-gap: 20px;
+        }
+
+        .result{
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(3, 1fr);
+            h1{
+                margin: 0;
+            }
+        }
+        
+        .title h1{
+            font-size: 46px;
+        }
+    }
+    @media screen and (min-width:768px) and (max-width:1119px)  {
+        .content{
+            width: 768px;
+        }  
+    }
+    
+}
+
+.title{
+    margin-bottom: 50px;
+    h1{
+        font-family: 'Kanit', sans-serif;
+        font-weight: 900;
+        font-size: 54px;
+        line-height: .9;
+    }
+}
+
+.form{
+    display: flex;
+}
+
+.result{
+    margin-top: 43px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .result-box{
+        span{
+            font-weight: 300;
+            font-size: 16px;
+            color: #575757;
+            font-family: 'Kanit', sans-serif;
+        }
+        h1{
+            font-family: 'Kanit', sans-serif;
+            font-weight: 900;
+            font-size: 54px;
+            color: #333333;
+        }
+    }
+    .result-btn{
+        button{
+            font-size: 28px;
+            font-family: 'Kanit', sans-serif;
+            font-weight: 600;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 8px 16px 12px;
+            gap: 10px;
+            width: 320px;
+            height: 68px;
+            background: #FF9514;
+            border-radius: 40px;
+            cursor: pointer;
+            border: 0;
+        }
+    }
+}
+
+.lds-ring {
+    display: inline-block;
+    position: relative;
+    width: 60px;
+    height: 60px;
+  }
+  .lds-ring div {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    width: 34px;
+    height: 34px;
+    margin: 9px;
+    border: 3px solid #fff;
+    border-radius: 50%;
+    animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border-color: #fff transparent transparent transparent;
+  }
+  .lds-ring div:nth-child(1) {
+    animation-delay: -0.45s;
+  }
+  .lds-ring div:nth-child(2) {
+    animation-delay: -0.3s;
+  }
+  .lds-ring div:nth-child(3) {
+    animation-delay: -0.15s;
+  }
+  @keyframes lds-ring {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
