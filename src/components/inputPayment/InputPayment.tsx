@@ -2,13 +2,13 @@ import React from "react";
 import './InputPayment.scss'
 
 interface InputPaymentProps{
-    fn: (value:number) => void
+    setPercent: (value:number) => void
     percent: number
     value:number
     loading:boolean
 }
 
-const InputPayment:React.FC<InputPaymentProps> = ({fn, percent, value, loading}) => {
+const InputPayment:React.FC<InputPaymentProps> = ({setPercent, percent, value, loading}) => {
 
     return (
         <div style={{marginRight:'10px'}}>
@@ -19,7 +19,7 @@ const InputPayment:React.FC<InputPaymentProps> = ({fn, percent, value, loading})
                     <h2>{percent}%</h2>
                 </div>
                 <div>
-                    <input disabled={loading} defaultValue={10}  type="range" id="price" name="price" min={10} max={60} onChange={(e)=>fn(+e.target.value)}  />
+                    <input disabled={loading} defaultValue={10}  type="range" id="price" name="price" min={10} max={60} onChange={(e)=>setPercent(+e.target.value)}  />
                 </div>
             </div>
         </div>

@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-interface R {
+interface ReqProps {
     car_coast:number,
     initail_payment: number,
     initail_payment_percent: number,
@@ -9,19 +9,19 @@ interface R {
     monthly_payment_from: number
 }
 
-const useSubmit = () => {
-    const submitForm = async (req:R) =>{
-        const {data} = await axios.post<R>('https://hookb.in/eK160jgYJ6UlaRPldJ1P/',req,{headers: {
+const useLeasing = () => {
+    const submitForm = async (req:ReqProps) =>{
+        const {data} = await axios.post<ReqProps>('https://hookb.in/eK160jgYJ6UlaRPldJ1P',req,{headers: {
         'Content-Type': 'application/json',
         Accept: 'application/json',
         }})
-        console.log(data)
-    }
 
+        return data
+    }
     return {
         submitForm
     }
 
 }
 
-export default useSubmit
+export default useLeasing

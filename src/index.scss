@@ -16,16 +16,19 @@
 }
 
 .calc{
-    width: 1120px;
+    width: 95vw;
     background: #FFFFFF;
-    padding: 213px 48px;
+    padding: 100px 40px;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     @media screen and (max-width:767px) {
+        width: 100vw;
         .content{
             width: 320px;
-            padding: 0px 20px;
+            margin: 0 auto;
+            padding: 0px 10px;
         }
         .form{
             display: grid;
@@ -45,12 +48,21 @@
         
         .title h1{
             font-size: 46px;
+            @media screen and (max-width:767px) {
+                font-size: 42px;
+            }
         }
     }
     @media screen and (min-width:768px) and (max-width:1119px)  {
         .content{
             width: 768px;
-        }  
+            padding: 0px 20px;
+        } 
+        .form{
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+        } 
     }
     
 }
@@ -67,6 +79,10 @@
 
 .form{
     display: flex;
+    @media screen and (min-width:1440px) {
+        justify-content: center;
+        align-items: center;
+    }
 }
 
 .result{
@@ -86,6 +102,9 @@
             font-weight: 900;
             font-size: 54px;
             color: #333333;
+            @media screen and (min-width:768px) and (max-width:1119px)  {
+                font-size: 44px;
+            }
         }
     }
     .result-btn{
@@ -106,6 +125,14 @@
             border-radius: 40px;
             cursor: pointer;
             border: 0;
+            @media screen and (min-width:768px) and (max-width:1119px)  {
+                width: 270px;
+            }
+
+            @media screen and (max-width:767px) {
+                width: 260px;
+                font-size: 26px;
+            }
         }
     }
 }

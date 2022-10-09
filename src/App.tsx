@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import InputPrice from "./components/inputPrice/InputPrice";
-import InputPayment from "./components/inputPayment/InputPayment";
-import InputTerm from "./components/inputTerm/InputTerm";
+import InputPrice from "./components/InputPrice/InputPrice";
+import InputPayment from "./components/InputPayment/InputPayment";
+import InputTerm from "./components/InputTerm/InputTerm";
 import useCalc from "./hooks/useCalc";
-import useSubmit from "./hooks/useSubmit";
+import useLeasing from "./hooks/useLeasing";
 import { message } from 'antd';
 import 'antd/dist/antd.css';
 
@@ -16,7 +16,7 @@ function App() {
     const [loading, setLoading] = useState(false)
 
     const {handlePayment, handleMonthPay, handleSumContract, payment, monthPay, sumContract} = useCalc()
-    const {submitForm} = useSubmit()
+    const {submitForm} = useLeasing()
 
     const error = (err:string) => {
         message.error(`${err}`);
@@ -58,9 +58,9 @@ function App() {
                     <h1>Рассчитайте стоимость автомобиля в лизинг</h1>
                 </div>
                 <div className="form">
-                    <InputPrice loading={loading} fn={setPriceCar} value={priceCar}/>
-                    <InputPayment loading={loading} fn={setPercent} value={payment} percent={percent} />
-                    <InputTerm loading={loading} fn={setTerm} value={term}/>
+                    <InputPrice loading={loading} setPriceCar={setPriceCar} value={priceCar}/>
+                    <InputPayment loading={loading} setPercent={setPercent} value={payment} percent={percent} />
+                    <InputTerm loading={loading} setTerm={setTerm} value={term}/>
                 </div>
                 <div className="result">
                     <div className="result-box">

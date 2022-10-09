@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import {useState} from 'react'
 
 const useCalc = () => {
     const [sumContract, setSumContract] = useState(0)
@@ -28,8 +28,8 @@ const useCalc = () => {
         payment,
         monthPay,
         sumContract
-    }
-
+    } 
+ 
 }
 
 export default useCalc
