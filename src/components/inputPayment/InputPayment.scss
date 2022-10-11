@@ -8,7 +8,6 @@
     margin-top: 19px;
     
     .label-vulue{
-
         background: #F3F3F4;
         border-radius: 16px;
         display: inline-flex;
@@ -17,14 +16,18 @@
         justify-content: space-around;
         align-items: center;
         color: #575757;
+
+        form{
+            width: 70%;
+        }
         
         input{
             font-weight: 900;
-            font-size: 26px;
+            font-size: 30px;
             font-family: 'Kanit', sans-serif;
             color: #575757;
             height: 30px;
-            width: 50%;
+            width: 70%;
             border: 0;
             background: none;
             margin-left: 20px;
@@ -37,17 +40,26 @@
 
 
         label{
+            width: 70%;
             font-weight: 900;
             font-size: 30px;
             font-family: 'Kanit', sans-serif;
+            margin-left: 20px;
         }
 
         h2{
             color: #575757;
             margin: 0;
             font-weight: 900;
-            font-size: 30px;
+            font-size: 25px;
             font-family: 'Kanit', sans-serif;
+            margin-right: 20px;
+        }
+        @media screen and (min-width:768px) and (max-width:1119px)  {
+            width: 100%;
+            h2{
+                margin-right: 30px;
+            }
         }
 
     }
@@ -59,6 +71,9 @@
         height: 2px;
         width: 272px;
         background: #FF9514;
+        @media screen and (min-width:768px) and (max-width:1119px)  {
+            width: 94%;
+        }
     }
     input[type="range"]::-webkit-slider-thumb {
         -webkit-appearance: none;
@@ -73,4 +88,8 @@
         outline: none;
     }
 
+}
+
+.disabled{
+    opacity: .6;
 }

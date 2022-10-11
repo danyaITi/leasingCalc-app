@@ -6,6 +6,7 @@ import useCalc from "./hooks/useCalc";
 import useLeasing from "./hooks/useLeasing";
 import { message } from 'antd';
 import 'antd/dist/antd.css';
+import { formate } from "./utils/formateNumbers";
 
 
 function App() {
@@ -14,6 +15,8 @@ function App() {
     const[term, setTerm]= useState(10)
 
     const [loading, setLoading] = useState(false)
+    const [termValid, setTermValid] = useState(false)
+    const [PriceValid, setPriceValid] = useState(false)
 
     const {handlePayment, handleMonthPay, handleSumContract, payment, monthPay, sumContract} = useCalc()
     const {submitForm} = useLeasing()
@@ -34,7 +37,7 @@ function App() {
 
         setLoading(true)
 
-        try {
+        try { 
             await submitForm(req)
         } catch (err:any) {
             error(err.message)
@@ -48,8 +51,6 @@ function App() {
         handleSumContract(term)
     },[priceCar,percent,term,monthPay,payment])
 
-    
-
   return (
     <div className="App">
         <div className="calc">
@@ -58,21 +59,21 @@ function App() {
                     <h1>Рассчитайте стоимость автомобиля в лизинг</h1>
                 </div>
                 <div className="form">
-                    <InputPrice loading={loading} setPriceCar={setPriceCar} value={priceCar}/>
+                    <InputPrice setPriceValid={setPriceValid}  loading={loading} setPriceCar={setPriceCar} value={priceCar}/>
                     <InputPayment loading={loading} setPercent={setPercent} value={payment} percent={percent} />
-                    <InputTerm loading={loading} setTerm={setTerm} value={term}/>
+                    <InputTerm setTermValid={setTermValid} loading={loading} setTerm={setTerm} value={term}/>
                 </div>
                 <div className="result">
                     <div className="result-box">
                         <span>Сумма договора лизинга</span>
-                        <h1>{!sumContract ? 0 : sumContract}</h1>
+                        <h1>{!formate(sumContract) || !sumContract ? 0 : formate(sumContract)}</h1>
                     </div>
                     <div className="result-box">
                         <span>Ежемесячный платеж от</span>
-                        <h1>{!monthPay ? 0 : monthPay}</h1>
+                        <h1>{!formate(monthPay) || monthPay===Infinity || !monthPay ? 0 : formate(monthPay)}</h1>
                     </div>
                     <div className="result-btn">
-                        <button disabled={loading} onClick={handleSubmit}>{loading ? (<div className="lds-ring"><div></div><div></div><div></div><div></div></div>) : 'Оставить заявку'}</button>
+                        <button disabled={termValid || loading || !term || PriceValid} onClick={handleSubmit}>{loading ? (<div className="lds-ring"><div></div><div></div><div></div><div></div></div>) : 'Оставить заявку'}</button>
                     </div>
                 </div>
             </div>
